@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Creates the required network infrastructure for Public and Private routing with Internet access
+Parameters:
+  VPCCIDR:
+    Type: String
+
+Resources:
+  MainVPC:
+    Type: AWS::EC2::VPC
+    Properties: 
+      CidrBlock: !Ref VPCCIDR
+      # CidrBlock: 10.0.0.0/16
+      EnableDnsSupport: 'true'
+      EnableDnsHostnames: 'true'
+      Tags: 
+        - Key: Name
+          Value: "Main VPC"
